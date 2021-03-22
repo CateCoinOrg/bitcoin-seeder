@@ -14,7 +14,7 @@
 
 using namespace std;
 
-bool fTestNet = false;
+bool fTestNet = true;
 
 class CDnsSeedOpts {
 public:
@@ -418,13 +418,13 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"144.126.221.147", ""};
-static const string testnet_seeds[] = {"144.126.221.147", ""};
+static const string mainnet_seeds[] = {"144.126.221.147", "165.22.16.231", ""};
+static const string testnet_seeds[] = {"144.126.221.147", "165.22.16.231", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("kjy2eqzk4zwi5zd3.onion", 8333), true);
+    // db.Add(CService("kjy2eqzk4zwi5zd3.onion", 8333), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
